@@ -31,12 +31,18 @@
 						$sub.children("li").first().addClass("first");
 					}
 					$(this).find("a").each(function(){
-						var hrefSplit = $(this).attr("href").split("/");
-						var hashName = hrefSplit[ hrefSplit.length - 2 ];
+						var  href = $(this).attr("href");
+						if (href[0] != "#"){
+							var hrefSplit = href.split("/");
+							var hashName = hrefSplit[ hrefSplit.length - 2 ];
 
-						$(this).attr("data-page", hashName)
+							$(this).attr("data-page", hashName)
 
-						$(this).attr("href", "#!"+hashName);
+							console.log($(this).attr("href"))
+
+							$(this).attr("href", "#!"+hashName);
+						}
+
 					})
 				});
 
@@ -161,6 +167,56 @@
 
 			"bind": function(){
 
+			},
+
+			"beginImageRotation": function(){
+				var $container = this.data.template;
+				var $images = $container.find(".slider-image");
+
+				$images.hide().first().show();
+
+				window.clearInterval( this.data.rotationID );
+
+				this.data.rotationID = window.setInterval(function(){ 
+					var $vis = $images.filter(":visible");
+					var $next = $vis.next().length ? $vis.next() : $images.first();
+					$vis.fadeOut(1200);
+					$next.fadeIn(1200);
+				}, this.config.rotations.interval );
+			}
+		},
+		"lexi-puzder": {
+			"config": {
+				"name": "lexi-puzder",
+				"id": "lexi-puzder-page"
+			},
+			"data": {
+				"template": null
+			},
+			"init": function(){
+				this.data.template.find(".featured-gallery-area").children(":not(:first)").hide();
+			}
+		},
+		
+		"help-grimm": {
+			"config": {
+				"name": "help-grimm",
+				"id": "help-grimm-page",
+				"rotations": {
+					"interval": 4600
+				}
+			},
+			"data": {
+				"template": null
+			},
+			"init": function(){
+				var $container = this.data.template;
+
+				$container.find(".slider-image").hide().first().show();
+
+				this.beginImageRotation();
+
+				return true;
 			},
 
 			"beginImageRotation": function(){

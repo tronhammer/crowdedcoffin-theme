@@ -41,6 +41,7 @@ a.selected{
 #primary > div{
 	position: absolute;
 	left: 300px;
+	z-index: -1;
 }
 
 .site-title a:hover{
@@ -99,15 +100,16 @@ a.selected{
 .site-navigation .menu-item > ul.sub-menu li{
 	font-size: 14px;
 	padding: 5px 0px;
-	font-weight: bold;
+/*	font-weight: bold;
+*/	line-height: 21px;
 }
 
 .site-navigation ul.nav-menu > li{
 	padding: 0px 21px;
 	text-align: center;
-	text-transform: uppercase;
 	display: inline-block;
-	font-weight: bold;
+	/*font-weight: bold;*/
+	line-height: 21px;
 }
 
 .home-image-slider{
@@ -122,7 +124,6 @@ a.selected{
 	min-height: 559px;
 	background-size: 100% 100%;
 	position: absolute;
-	z-index: -1;
 }
 
 /**
@@ -152,6 +153,31 @@ a.selected{
 	box-shadow: 5px 5px 20px 10px rgba(0,0,0,0.8);
 	color: rgb(210, 210, 210);
 	line-height: 15px;
+}
+
+/**
+ * !!! CONTACT !!!
+ */
+
+.contact-content{
+	margin: 0 auto;
+	width: 968px;
+}
+
+.contact-left-image{
+	float: left;
+	height: 475px;
+	width: 570px;
+}
+
+.contact-details{
+	float: left;
+	margin-left: 15px;
+	width: 350px;
+}
+
+.contact-title{
+	font: normal normal normal 25px/1.4em play, sans-serif;
 }
 
 /**
@@ -185,18 +211,19 @@ a.selected{
 
 .featured-content{
 	margin: 0 auto;
-	width: 968px;
+	width: 1068px;
 }
 
 .featured-left-image{
 	width: 324px;
 	height: 366px;
+	background-size: cover;
 }
 
 .featured-details{
 	float:left;
-	margin-left: 15px;
-	width: 330px;
+	margin-left: 0px;
+	width: 326px;
 }
 
 .featured-title{
@@ -205,10 +232,90 @@ a.selected{
 
 .featured-gallery-area{
 	float:left;
+	margin-top: -2px;
 }
 
 .featured-gallery-item{
 	width: 103px;
 	height: 137px;
+	background-size: cover;
+	float: left;
+	margin: 2px;
+}
+
+/**
+ * !!! Help Grimm !!!
+ */
+
+.help-grimm-content{
+	margin: 0 auto;
+	width: 968px;
+}
+
+.help-grimm-image{
+	margin: 0 auto;
+	height: 475px;
+	width: 570px;
+}
+
+.help-grimm-details{
+	margin-left: -15px;
+	margin-top: 25px;
+}
+
+.help-grimm-description{
+	float:left;
+	width: 653px;
+	margin-left: 20px;
+	font: normal normal normal 13px/1.4em play, sans-serif;
+	font-size: 18px;
+	line-height:normal;
+}
+
+.help-grimm-description > p{
+	margin-top: 0px;
+}
+
+.help-grimm-donation{
+	float: left;
+	width: 300px;
+	color: #58FF00;
+	font: normal normal normal 16px/1.4em play, sans-serif;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: normal;
+	letter-spacing: 1px;
+}
+
+.help-grimm-image-slider{
+	margin: 0 auto;
+	border: 2px solid rgba(255, 255, 255, 0.6);
+	width: 968px;
+	min-height: 509px;
+}
+
+.help-grimm-image-slider .slider-image{
+	width: 968px;
+	min-height: 509px;
 	background-size: 100% 100%;
+	position: absolute;
+}
+
+
+.video-left-container{
+	float: left;
+}
+
+.video-right-container{
+	float: left;
+	margin-left: 20px;
+}
+
+.video-left-container h2,.video-left-container h3{
+	text-align: center;
+}
+
+.video-right-container h2,.video-right-container h3{
+	text-align: center;
 }

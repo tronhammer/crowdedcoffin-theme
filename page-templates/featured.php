@@ -28,12 +28,73 @@ while ( have_posts() ) :
 
 	<div class="featured-gallery-area">
 		<?php
-			foreach($images as $imagePos=>$image) : ?>
+			$rowCount = 6;
+			$containerCount = 4;
+			$currentRow = 0;
+			$currentContainer = 0;
+			foreach($images as $imagePos=>$image) : 
+				$newRow = !$currentRow++;
 
-			<div class="featured-gallery-item" style="background-image: url('<?php echo $image->guid; ?>');"></div>
+				if ($newRow) : 
 
-		<?php
-			endforeach; ?>
+					$newContainer = !$currentContainer++;
+
+					if ($newContainer) : ?>
+				
+				<div class="container">
+
+				<?php
+				endif;
+				?>
+
+					<div class="row">
+
+				<?php
+				endif; ?>
+
+						<div class="featured-gallery-item" style="background-image: url('<?php echo $image->guid; ?>');"></div>
+
+				<?php
+				if ($currentRow == $rowCount) : 
+
+					$currentRow = 0;
+
+
+					?>
+				
+					</div> <!-- end row -->
+
+				<?php
+				endif;
+
+				if ($currentContainer == $containerCount && !$currentRow) : 
+				
+					$currentContainer = 0;
+
+					?>
+
+				</div> <!-- end container -->
+
+				<?php
+				endif;
+
+			endforeach; 
+
+			if ($currentRow) : ?>
+			
+					</div> <!-- end row -->
+
+			<?php
+			endif;
+
+			if ($currentContainer) : ?>
+
+				</div> <!-- end container -->
+
+			<?php
+			endif;
+
+			?>
 	</div>
 </div>
 
