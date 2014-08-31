@@ -84,8 +84,6 @@
 					})
 					.delegate(".menu-item", "mouseout", function(e){
 						var $sub = $(this).children(".sub-menu");
-						e.stopPropagation();
-
 						if ($sub.length){
 							$sub.hide();
 						}
