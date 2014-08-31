@@ -19,7 +19,7 @@
 			this.bind();
 		},
 		"bind": function(){
-			$("body").delegate(".main-enter-site,#main-intro-video", "click", function(){
+			$("body").delegate(".main-enter-site,main-intro > img", "click", function(){
 				// $("#main-intro-video").get(0).play();
 				window.cc.runIntro();
 				setTimeout(function(){
@@ -135,7 +135,8 @@
 				},
 
 				"get": function(pageName){
-					$.get( window.location.pathname + pageName )
+					var mobile = $(window).width() < 724 ? "?mobile=true" : "";
+					$.get( window.location.pathname + pageName + mobile)
 						.done( this.render );
 				},
 				"render": function(tmpl){

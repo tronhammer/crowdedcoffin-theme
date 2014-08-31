@@ -422,6 +422,7 @@ a.selected{
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
+
 	#main-intro img{
 		position: absolute;
 		left: 20px;
@@ -458,6 +459,11 @@ a.selected{
 		padding: 0px 5px;
 		line-height: 12px;
 		font: normal normal normal 14px/1.4em play, sans-serif;
+	}
+
+	.featured-gallery-area{
+		float: none;
+		width: 100%;
 	}
 }
 

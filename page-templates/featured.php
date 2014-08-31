@@ -33,13 +33,23 @@ while ( have_posts() ) :
 	<div class="featured-gallery-area">
 		<div class="featured-gallery-display">
 			<div class="featured-gallery-row" data-row="0"></div>			
-			<div class="featured-gallery-row" data-row="1"></div>			
+			<div class="featured-gallery-row" data-row="1"></div>
 			<div class="featured-gallery-row" data-row="2"></div>			
-			<div class="featured-gallery-row" data-row="3"></div>			
+			<?php
+				if (!isset($_GET["mobile"])) : ?>
+				<div class="featured-gallery-row" data-row="3"></div>
+			<?php
+			endif; ?>
 		</div>
 		<?php
 			$totalRows = 4;
 			$totalCols = 6;
+
+			if (isset($_GET["mobile"])){
+				$totalRows = 3;
+				$totalCols = 3;
+			}
+
 			$currentPos = 0;
 			$currentContainer = 0;
 			$createContainer = true;
