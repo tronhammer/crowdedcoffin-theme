@@ -19,15 +19,24 @@
 			this.bind();
 		},
 		"bind": function(){
+			$("body").delegate(".main-enter-site,#main-intro-video", "click", function(){
+				$("#main-intro-video").get(0).play();
+				setTimeout(function(){				
+					$("#main-intro").fadeOut(5000);
+				}, 2000)
+			})
 			$(window).bind("hashchange", this.common.route.change);
 		},
 
 		"setup": {
+			"intro": function(){
+
+			},
 			"menu": function(){
 				$(".menu-item").each(function(){
 					var $sub = $(this).children(".sub-menu");
 					if ($sub.length){
-						$sub.css("width", $(this).outerWidth() +"px");
+						$sub.css("width", $(this).innerWidth() +"px");
 						$sub.children("li").first().addClass("first");
 					}
 					$(this).find("a").each(function(){
@@ -37,8 +46,6 @@
 							var hashName = hrefSplit[ hrefSplit.length - 2 ];
 
 							$(this).attr("data-page", hashName)
-
-							console.log($(this).attr("href"))
 
 							$(this).attr("href", "#!"+hashName);
 						}
@@ -138,6 +145,104 @@
 
 
 				}
+			},
+			"animations": {
+				"_builtIn": {
+					"map": ["fullShift", "staggeredShift", "rowSlip", "staggeredShift", "staggeredShift", "rowSlip"],
+					"getNext": function($container){
+						var currentContainer = +$container.find(".featured-gallery-display").data("currentContainer");
+						var nextContainer = currentContainer == $container.find(".featured-gallery-container").length-1 ? 0 : currentContainer+1;
+						$container.find(".featured-gallery-display").data("currentContainer", nextContainer);
+						return nextContainer;
+					}
+				},
+				"randomSelection": function($container){
+					var _this = window.cc.common.animations;
+					var opt = (Math.random() * _this._builtIn.map.length | 0);
+					_this[ _this._builtIn.map[opt] ]($container);
+				},
+				"rowSlip": function($container){
+					var nextContainer = this._builtIn.getNext($container);
+					var randRowDirection = (Math.random() * 2 | 0);
+					$container.find(".featured-gallery-display .featured-gallery-row").each(function(rowPos){
+						var $ele = $(this);
+						var c = $ele.children().addClass("removing");
+						var w = (c.outerWidth() + 4) * c.length;
+						var n = $($container.find(".featured-gallery-container[data-container='"+nextContainer+"']").children().get(rowPos)).children().clone(true);
+
+						var odd = rowPos % 2;
+
+						/**
+						 * Randomize the row directions
+						 */
+						odd = randRowDirection ? !odd : odd;
+
+						if (odd){
+							n.css("left", "-"+w*2+"px");
+						}
+
+						$ele.append(n);
+
+						$ele.children().animate({
+							"left": (odd?"+":"-") + "="+w+"px"
+						}, {
+							"duration": 700,
+							"easing": "easeInQuart"
+						}).delay(500).promise().done(function(){
+							c.remove();
+							n.css("left", 0);
+						}); 
+					})
+				},
+
+				"fullShift": function($container){
+					var nextContainer = this._builtIn.getNext($container);
+					$container.find(".featured-gallery-display .featured-gallery-row").each(function(rowPos){
+						var $ele = $(this);
+						var c = $ele.children().addClass("removing");
+						var w = (c.outerWidth() + 4) * c.length;
+						var n = $($container.find(".featured-gallery-container[data-container='"+nextContainer+"']").children().get(rowPos)).children().clone(true);
+
+						$ele.append(n);
+
+						$ele.children().animate({
+							"left": "-="+w+"px"
+						}, {
+							"duration": 700,
+							"easing": "easeInQuart"
+						}).delay(500).promise().done(function(){
+							c.remove();
+							n.css("left", 0);
+						}); 
+					})
+
+				},
+				"staggeredShift": function($container){
+					var nextContainer = this._builtIn.getNext($container);
+					var t = 0;
+
+					$container.find(".featured-gallery-display .featured-gallery-row").each(function(pos){
+						setTimeout(function(ele, rowPos){ 
+							var $ele = $(ele);
+							var c = $ele.children().addClass("removing");
+							var w = (c.outerWidth() + 4) * c.length;
+							var n = $($container.find(".featured-gallery-container[data-container='"+nextContainer+"']").children().get(rowPos)).children().clone(true);
+
+							$ele.append(n);
+
+							$ele.children().animate({
+								"left": "-="+w+"px"
+							}, {
+								"duration": 700,
+								"easing": "easeInQuart"
+							}).delay(500).promise().done(function(){
+								c.remove();
+								n.css("left", 0);
+							}); 
+						}, t, this, pos); 
+						t+=130; 
+					});
+				}
 			}
 		}
 	};
@@ -195,6 +300,28 @@
 			},
 			"init": function(){
 				this.data.template.find(".featured-gallery-area").children(":not(:first)").hide();
+			}
+		},
+		"the-dillinger-escape-plan": {
+			"config": {
+				"name": "the-dillinger-escape-plan",
+				"id": "the-dillinger-escape-plan-page"
+			},
+			"data": {
+				"template": null
+			},
+			"init": function(){
+				var _this = this;
+				this.data.template.find(".featured-gallery-display .featured-gallery-row").each(function(pos){
+					$(this).append( 
+						_this.data.template.find(".featured-gallery-container:first")
+							.children(".featured-gallery-row[data-row='"+pos+"']")
+								.children().clone(true)
+					)
+				}).parent().data("currentContainer", 0);
+
+				setInterval(window.cc.common.animations.randomSelection, 3800, this.data.template);
+
 			}
 		},
 		

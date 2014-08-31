@@ -26,7 +26,7 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Anton:n,b,i,bi|Play:n,b,i,bi|&amp;subset=latin">
 	<link rel="stylesheet" type="text/css" href="http://static.parastorage.com/services/web/2.1022.7/css/wysiwyg/user-site-fonts/latin.css">
-		
+	
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
@@ -65,9 +65,10 @@
 
 	<header id="primaryHeader" class="site-header" role="banner">
 		<div class="header-main">
-<!-- 			<h1 style="color:white"><?php  var_dump(debug_backtrace()); ?></h1>
- -->			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+ 				<img id="site-main-logo" src="/wordpress/wp-content/themes/crowdedcoffin/CCwebheader.jpg"
+ 			</a></h1>
+		
 			<nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
 			</nav>

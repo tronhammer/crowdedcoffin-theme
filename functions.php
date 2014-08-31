@@ -78,12 +78,6 @@ function crowdedcoffin_setup() {
 	set_post_thumbnail_size( 672, 372, true );
 	add_image_size( 'crowdedcoffin-full-width', 1038, 576, true );
 
-	// This theme uses wp_nav_menu() in two locations.
-	register_nav_menus( array(
-		'primary'   => __( 'Top primary menu', 'crowdedcoffin' ),
-		'secondary' => __( 'Secondary menu in left sidebar', 'crowdedcoffin' ),
-	) );
-
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
@@ -137,13 +131,14 @@ add_action( 'template_redirect', 'crowdedcoffin_content_width' );
  * @return array An array of WP_Post objects.
  */
 function crowdedcoffin_get_featured_posts() {
-	/**
+	/*
 	 * Filter the featured posts to return in Crowded Coffin.
 	 *
 	 * @since Crowded Coffin 1.0
 	 *
 	 * @param array|bool $posts Array of featured posts, otherwise false.
 	 */
+	 
 	return apply_filters( 'crowdedcoffin_get_featured_posts', array() );
 }
 
@@ -223,11 +218,18 @@ function crowdedcoffin_font_url() {
  * @since Crowded Coffin 1.0
  */
 function crowdedcoffin_scripts() {
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"), false, '1.9.1');
+	wp_enqueue_script('jquery');
+
 	// Add Lato font, used in the main stylesheet.
 	wp_enqueue_style( 'crowdedcoffin-lato', crowdedcoffin_font_url(), array(), null );
 
 	// Add Genericons font, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.0.2' );
+
+
+	wp_enqueue_style( 'jquery-ui', get_template_directory_uri() . '/css/jquery-ui.min.css', array(), '3.0.2' );
 
 	// Load our main stylesheet.
 	wp_enqueue_style( 'crowdedcoffin-style', get_stylesheet_uri(), array( 'genericons' ) );
@@ -257,6 +259,8 @@ function crowdedcoffin_scripts() {
 	}
 
 	wp_enqueue_script( 'crowdedcoffin-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20140319', true );
+	wp_enqueue_script( 'crowdedcoffin-jquery-ui', get_template_directory_uri() . '/js/jquery-ui.min.js', array( 'jquery' ), '20131209', true );
+	// wp_enqueue_script( 'crowdedcoffin-easing', get_template_directory_uri() . '/js/jquery.easing.1.3.js', '20131209', true );
 }
 add_action( 'wp_enqueue_scripts', 'crowdedcoffin_scripts' );
 

@@ -16,6 +16,12 @@
 
 get_header(); ?>
 
+
+<div id="main-intro" style="display:none;">
+	<h1 class="main-enter-site">ENTER</h1>
+	<video width="800" height="600" id="main-intro-video" name="Video Name" src="/wordpress/wp-content/themes/crowdedcoffin/CrowdedCoffinlLAYERS_1.mov"></video>
+</div>
+
 <div id="main-content" class="main-content">
 	<div id="primary" class="content-area">
 

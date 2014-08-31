@@ -14,6 +14,8 @@ while ( have_posts() ) :
 	$images = get_attached_media("", $post->ID);
 	
 	foreach($images as $imagePos=>$mainImage) break;
+
+	sort($images);
 ?>
 
 <div class="featured-content site-content" role="main">
@@ -27,76 +29,57 @@ while ( have_posts() ) :
 	</div><!-- #primary -->
 
 	<div class="featured-gallery-area">
+		<div class="featured-gallery-display">
+			<div class="featured-gallery-row" data-row="0"></div>			
+			<div class="featured-gallery-row" data-row="1"></div>			
+			<div class="featured-gallery-row" data-row="2"></div>			
+			<div class="featured-gallery-row" data-row="3"></div>			
+		</div>
 		<?php
 			$rowCount = 6;
 			$containerCount = 4;
 			$currentRow = 0;
 			$currentContainer = 0;
-			foreach($images as $imagePos=>$image) : 
-				$newRow = !$currentRow++;
 
-				if ($newRow) : 
 
-					$newContainer = !$currentContainer++;
+			$totalRows = 4;
+			$totalCols = 6;
+			$currentPos = 0;
+			$currentContainer = 0;
+			$createContainer = true;
+			while($createContainer) : ?>
+			
+			<div class="featured-gallery-container hide" data-container="<?php echo $currentContainer++; ?>">
+			
+			<?php
 
-					if ($newContainer) : ?>
-				
-				<div class="container">
+				for($i=0;$i<$totalRows;$i++) : ?>
+
+					<div class="featured-gallery-row" data-row="<?php echo $i; ?>">
 
 				<?php
-				endif;
-				?>
 
-					<div class="row">
+					for($ii=0;$ii<$totalCols;$ii++) :
 
-				<?php
-				endif; ?>
+						if ($currentPos++ >= count($images)-1) :
+							$createContainer = false;
+							?>
+						<div class="featured-gallery-item" data-type="empty"></div>
+						<?php
+						else :
+							$image = $images[$currentPos];
+						?>
 
 						<div class="featured-gallery-item" style="background-image: url('<?php echo $image->guid; ?>');"></div>
 
-				<?php
-				if ($currentRow == $rowCount) : 
-
-					$currentRow = 0;
-
-
-					?>
-				
+					<?php
+						endif;
+					endfor; ?>
 					</div> <!-- end row -->
-
 				<?php
-				endif;
-
-				if ($currentContainer == $containerCount && !$currentRow) : 
-				
-					$currentContainer = 0;
-
-					?>
-
-				</div> <!-- end container -->
-
+				endfor; ?>
+					</div> <!-- end container -->
 				<?php
-				endif;
+			endwhile;
 
-			endforeach; 
-
-			if ($currentRow) : ?>
-			
-					</div> <!-- end row -->
-
-			<?php
-			endif;
-
-			if ($currentContainer) : ?>
-
-				</div> <!-- end container -->
-
-			<?php
-			endif;
-
-			?>
-	</div>
-</div>
-
-<? 
-endwhile;
+		endwhile;

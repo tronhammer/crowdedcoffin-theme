@@ -23,11 +23,45 @@ Use it to make something cool, have fun, and share what you've learned with othe
 body{
 	font: normal normal normal 16px/1.4em play, sans-serif;
 	color: white;
+	overflow: hidden;
 }
 
 a{
 	color: white;
 	text-decoration: none;
+}
+
+.hide{
+	display: none;
+}
+
+#main-intro{
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background: black;
+	height: 100%;
+}
+
+#main-intro video{
+	position: absolute;
+	top: 60px;
+	left: 375px;
+	cursor: pointer;
+}
+
+#main-intro h1{
+	position: absolute;
+	top: 490px;
+	left: 719px;
+	z-index: 1;
+	cursor: pointer;
+}
+
+#site-main-logo{
+	width: 990px;
+	margin-left: 40px;
 }
 
 a:hover{
@@ -56,7 +90,7 @@ a.selected{
 	height: auto;
 	letter-spacing: -6px;
 	line-height: normal;
-	margin: 20px 0px 0px 0px;
+	margin: 20px 0px -5px 0px;
 }
 
 .site-navigation{
@@ -65,9 +99,10 @@ a.selected{
 
 .site-navigation ul.nav-menu{
 	margin: 0 auto;
-	width: 968px;
-	margin-bottom: 10px;
+	width: 1000px;
+	margin-bottom: 5px;
 	list-style-type: none;
+	padding-left: 40px;
 }
 
 .site-navigation ul.nav-menu > li:hover{
@@ -105,10 +140,9 @@ a.selected{
 }
 
 .site-navigation ul.nav-menu > li{
-	padding: 0px 21px;
+	padding: 0px 28px;
 	text-align: center;
 	display: inline-block;
-	/*font-weight: bold;*/
 	line-height: 21px;
 }
 
@@ -233,9 +267,19 @@ a.selected{
 .featured-gallery-area{
 	float:left;
 	margin-top: -2px;
+	overflow: hidden;
+	width: 642px;
+}
+
+
+.featured-gallery-row{
+	position: relative;
+	overflow: hidden;
+	width: 1900px;
 }
 
 .featured-gallery-item{
+	position:relative;
 	width: 103px;
 	height: 137px;
 	background-size: cover;
