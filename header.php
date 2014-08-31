@@ -27,6 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Anton:n,b,i,bi|Play:n,b,i,bi|&amp;subset=latin">
 	<link rel="stylesheet" type="text/css" href="http://static.parastorage.com/services/web/2.1022.7/css/wysiwyg/user-site-fonts/latin.css">
 	
+	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/css/jquery-ui.min.css">
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
@@ -47,9 +48,6 @@
 						},
 						"data": {
 							"template": null
-						},
-						"init": function(){
-							
 						}
 					},
 				<?php

@@ -27,7 +27,10 @@ while ( have_posts() ) :
 		<div class="help-grimm-image-slider">
 	<?php
 		foreach($images as $imagePos=>$image) : ?>
-			<div class="slider-image hide" style="background-image: url('<?php echo $image->guid; ?>');"></div>
+			<div class="slider-image hide" style="background-image: url('<?php
+			$uriParsed = parse_url($image->guid);
+			$uri = $uriParsed["path"];  
+			echo $uri; ?>');"></div>
 	<?php
 		endforeach;
 		?>

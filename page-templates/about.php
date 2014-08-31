@@ -15,7 +15,10 @@ while ( have_posts() ) :
 	foreach($images as $imagePos=>$image) break;
 ?>
 
-<div class="about-content site-content" role="main" style="background-image: url('<?php echo $image->guid; ?>');">
+<div class="about-content site-content" role="main" style="background-image: url('<?php
+	$uriParsed = parse_url($image->guid);
+	$uri = $uriParsed["path"];  
+	echo $uri; ?>');">
 	<div class="about-details"><?php the_content(); ?></div>
 </div><!-- #content -->
 

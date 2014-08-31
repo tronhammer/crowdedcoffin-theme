@@ -125,7 +125,9 @@
 
 					$container.append($tmpl.hide());
 
-					page.init();
+					if ($.isFunction(page.init)){
+						page.init();
+					}
 
 					window.cc.common.page.display(page.config.name);
 				},
@@ -139,9 +141,20 @@
 						return this.get(pageName);
 					}
 
+					if (window.cc.pages._current){
+						if ($.isFunction(window.cc.pages._current.stop)){
+							window.cc.pages._current.stop();
+						}
+					}
+
+					window.cc.pages._current = page;
+
+					if ($.isFunction(page.start)){
+						page.start();
+					}
+
 					$container.children().fadeOut();
 					$page.fadeIn();
-
 
 
 				}
@@ -265,13 +278,15 @@
 
 				$container.find(".slider-image").hide().first().show();
 
-				this.beginImageRotation();
-
 				return true;
 			},
 
-			"bind": function(){
+			"start": function(){
+				this.beginImageRotation();
+			},
 
+			"stop": function(){
+				window.clearInterval( this.data.rotationID );
 			},
 
 			"beginImageRotation": function(){
@@ -302,6 +317,35 @@
 				this.data.template.find(".featured-gallery-area").children(":not(:first)").hide();
 			}
 		},
+		"unicorns-2013": {
+			"config": {
+				"name": "unicorns-2013",
+				"id": "unicorns-2013-page"
+			},
+			"data": {
+				"template": null
+			},
+			"init": function(){
+				var _this = this;
+				this.data.template.find(".featured-gallery-display .featured-gallery-row").each(function(pos){
+					$(this).append( 
+						_this.data.template.find(".featured-gallery-container:first")
+							.children(".featured-gallery-row[data-row='"+pos+"']")
+								.children().clone(true)
+					)
+				}).parent().data("currentContainer", 0);
+
+			},
+
+			"start": function(){
+				// this.data.intervalID = setInterval(window.cc.common.animations.randomSelection, 3800, this.data.template);
+			},
+
+			"stop": function(){
+				// window.clearInterval( this.data.intervalID );
+			}
+		},
+
 		"the-dillinger-escape-plan": {
 			"config": {
 				"name": "the-dillinger-escape-plan",
@@ -320,8 +364,18 @@
 					)
 				}).parent().data("currentContainer", 0);
 
-				setInterval(window.cc.common.animations.randomSelection, 3800, this.data.template);
+			},
 
+			"start": function(){
+				if (this.data.template.find(".featured-gallery-item").length > 24){
+					this.data.intervalID = setInterval(window.cc.common.animations.randomSelection, 3800, this.data.template);
+				}
+			},
+
+			"stop": function(){
+				if (this.data.template.find(".featured-gallery-item").length > 24){
+					window.clearInterval( this.data.intervalID );
+				}
 			}
 		},
 		

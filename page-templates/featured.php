@@ -17,11 +17,13 @@ while ( have_posts() ) :
 
 	sort($images);
 ?>
-
 <div class="featured-content site-content" role="main">
 
 	<div class="featured-details content-area">
-		<div class="featured-left-image" style="background-image: url('<?php echo $mainImage->guid; ?>');"></div>
+		<div class="featured-left-image" style="background-image: url('<?php
+			$uriParsed = parse_url($mainImage->guid);
+			echo $uriParsed["path"]; 
+		?>');"></div>
 		<span class="featured-title"><?php the_title(); ?></span>
 		<div class="featured-description">
 			<?php the_content(); ?>
@@ -36,12 +38,6 @@ while ( have_posts() ) :
 			<div class="featured-gallery-row" data-row="3"></div>			
 		</div>
 		<?php
-			$rowCount = 6;
-			$containerCount = 4;
-			$currentRow = 0;
-			$currentContainer = 0;
-
-
 			$totalRows = 4;
 			$totalCols = 6;
 			$currentPos = 0;
@@ -68,9 +64,11 @@ while ( have_posts() ) :
 						<?php
 						else :
 							$image = $images[$currentPos];
+							$uriParsed = parse_url($image->guid);
+							$uri = $uriParsed["path"]; 
 						?>
 
-						<div class="featured-gallery-item" style="background-image: url('<?php echo $image->guid; ?>');"></div>
+						<div class="featured-gallery-item" style="background-image: url('<?php echo $uri; ?>');"></div>
 
 					<?php
 						endif;

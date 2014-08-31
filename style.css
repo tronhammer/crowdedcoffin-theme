@@ -363,3 +363,35 @@ a.selected{
 .video-right-container h2,.video-right-container h3{
 	text-align: center;
 }
+
+/**
+ * !!! GALLERY GRID !!!
+ */
+
+.gallery-grid-content{
+	margin: 0 auto;
+	width: 1068px;
+}
+
+.gallery-grid-gallery-area{
+	float:left;
+	margin-top: -2px;
+	overflow: hidden;
+	width: 1068px;
+}
+
+
+.gallery-grid-gallery-row{
+	position: relative;
+	overflow: hidden;
+	width: 1900px;
+}
+
+.gallery-grid-gallery-item{
+	position:relative;
+	width: 156px;
+	height: 164px;
+	background-size: cover;
+	float: left;
+	margin: 2px;
+}

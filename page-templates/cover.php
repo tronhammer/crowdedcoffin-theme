@@ -18,7 +18,10 @@ while ( have_posts() ) :
 
 <div class="cover-content site-content" role="main">
 
-	<div class="cover-left-image" style="background-image: url('<?php echo $image->guid; ?>');"></div>
+	<div class="cover-left-image" style="background-image: url('<?php
+		$uriParsed = parse_url($image->guid);
+		$uri = $uriParsed["path"];  
+		echo $uri; ?>');"></div>
 	<div class="cover-details content-area">
 		<span class="cover-title"><?php the_title(); ?></span>
 		<div class="cover-description">

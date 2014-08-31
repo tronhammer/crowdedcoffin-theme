@@ -18,7 +18,10 @@ while ( have_posts() ) :
 
 <div class="contact-content site-content" role="main">
 
-	<div class="contact-left-image" style="background-image: url('<?php echo $image->guid; ?>');"></div>
+	<div class="contact-left-image" style="background-image: url('<?php 
+		$uriParsed = parse_url($image->guid);
+		$uri = $uriParsed["path"];  
+		echo $uri; ?>');"></div>
 	<div class="contact-details content-area">
 		<span class="contact-title"><?php the_title(); ?></span>
 		<div class="contact-description">
