@@ -465,6 +465,16 @@ a.selected{
 		float: none;
 		width: 100%;
 	}
+
+	.home-image-slider{
+		width: 560px;
+		min-height: 250px;
+	}
+
+	.home-image-slider .slider-image{
+		width: 560px;
+		min-height: 250px;
+	}
 }
 
 /* Landscape phones and smaller */
@@ -496,5 +506,15 @@ a.selected{
 	.site-navigation ul.nav-menu{
 		width: 300px;
 		padding-left: 10px;
+	}
+
+	.home-image-slider{
+		width: 300px;
+		min-height: 170px;
+	}
+
+	.home-image-slider .slider-image{
+		width: 300px;
+		min-height: 170px;
 	}
 }
