@@ -35,6 +35,12 @@ a{
 	display: none;
 }
 
+#main-intro img{
+	position: absolute;
+	left: 290px;
+	display: none;
+}
+
 #main-intro{
 	width: 100%;
 	position: absolute;
@@ -394,4 +400,92 @@ a.selected{
 	background-size: cover;
 	float: left;
 	margin: 2px;
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+	#main-intro img{
+		position: absolute;
+		left: 20px;
+		top: 0px;
+		width: 600px;
+		display: none;
+	}
+
+	#main-intro h1{
+		position: absolute;
+		top: 270px;
+		left: 270px;
+		z-index: 1;
+		cursor: pointer;
+	}
+
+	#site-main-logo{
+		width: 582px;
+		margin-left: 0px;
+	}
+
+	#primary > div{
+		left: 10px;
+	}
+
+	.site-navigation ul.nav-menu {
+		width: 560px;
+		padding-left: 8px;
+		padding-bottom: 5px;
+		margin: 0px;
+	}
+
+	.site-navigation ul.nav-menu > li{
+		padding: 0px 5px;
+		line-height: 12px;
+		font: normal normal normal 14px/1.4em play, sans-serif;
+	}
+}
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+	#main-intro img{
+		position: absolute;
+		left: -120px;
+		top: 100px;
+		width: 600px;
+		display: none;
+	}
+
+	#main-intro h1{
+		position: absolute;
+		top: 390px;
+		left: 120px;
+		z-index: 1;
+		cursor: pointer;
+	}
+
+	#site-main-logo{
+		width: 300px;
+		margin-left: 0px;
+	}
+	#primary > div{
+		left: 15px;
+	}
+
+	.site-navigation ul.nav-menu{
+		width: 300px;
+		padding-left: 10px;
+	}
 }

@@ -20,12 +20,28 @@
 		},
 		"bind": function(){
 			$("body").delegate(".main-enter-site,#main-intro-video", "click", function(){
-				$("#main-intro-video").get(0).play();
-				setTimeout(function(){				
-					$("#main-intro").fadeOut(5000);
-				}, 2000)
+				// $("#main-intro-video").get(0).play();
+				window.cc.runIntro();
+				setTimeout(function(){
+					$("#main-intro > h1").fadeOut(1000);
+					$("#main-intro").fadeOut(3000);
+				}, 1000)
 			})
 			$(window).bind("hashchange", this.common.route.change);
+		},
+
+		"runIntro": function(){
+			var t = 0;
+			var prev;
+			$("#main-intro img").each(function(){
+				setTimeout(function(ele,before){
+					if (before){
+						$(before).hide();
+					}
+					$(ele).show();
+				}, (t+=30), this, prev);
+				prev = this;
+			});
 		},
 
 		"setup": {
