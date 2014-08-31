@@ -425,7 +425,7 @@ a.selected{
 
 	#main-intro img{
 		position: absolute;
-		left: 20px;
+		left: -20px;
 		top: 0px;
 		width: 600px;
 		display: none;
@@ -434,7 +434,7 @@ a.selected{
 	#main-intro h1{
 		position: absolute;
 		top: 270px;
-		left: 270px;
+		left: 230px;
 		z-index: 1;
 		cursor: pointer;
 	}
@@ -456,7 +456,7 @@ a.selected{
 	}
 
 	.site-navigation ul.nav-menu > li{
-		padding: 0px 5px;
+		padding: 0px 3px;
 		line-height: 12px;
 		font: normal normal normal 14px/1.4em play, sans-serif;
 	}
@@ -482,15 +482,15 @@ a.selected{
 	#main-intro img{
 		position: absolute;
 		left: -120px;
-		top: 100px;
+		top: 0px;
 		width: 600px;
 		display: none;
 	}
 
 	#main-intro h1{
 		position: absolute;
-		top: 390px;
-		left: 120px;
+		top: 270px;
+		left: 130px;
 		z-index: 1;
 		cursor: pointer;
 	}
