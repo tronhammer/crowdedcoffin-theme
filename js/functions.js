@@ -6,6 +6,9 @@
  *
  */
 ( function( $ ) {
+	$("#main-intro").width( $(window).width() );
+
+	$("#main-intro").height( $(window).height() );
 	window.cc = {
 		"config": {
 			"defaults": {
