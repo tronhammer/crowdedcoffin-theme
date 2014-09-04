@@ -9,18 +9,15 @@
  * @since Crowded Coffin 1.0
  */
 ?>
+			</div><!-- #main -->
 
-		</div><!-- #main -->
+			<footer id="colophon" class="site-footer" role="contentinfo">
+				<div class="site-info">
+					<?php do_action( 'crowdedcoffin_credits' ); ?>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+		</div><!-- #page -->
 
-		<footer id="colophon" class="site-footer" role="contentinfo">
-
-
-			<div class="site-info">
-				<?php do_action( 'crowdedcoffin_credits' ); ?>
-			</div><!-- .site-info -->
-		</footer><!-- #colophon -->
-	</div><!-- #page -->
-
-	<?php wp_footer(); ?>
-</body>
+		<?php wp_footer(); ?>
+	</body>
 </html>
