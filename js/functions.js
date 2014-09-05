@@ -55,25 +55,25 @@
 					}
 				});
 
-				$(".menu-item").each(function(){
-					var $sub = $(this).children(".sub-menu");
-					if ($sub.length){
-						$sub.css("width", $(this).innerWidth() +"px");
-						$sub.children("li").first().addClass("first");
-					}
-					$(this).find("a").each(function(){
-						var  href = $(this).attr("href");
-						if (href[0] != "#"){
-							var hrefSplit = href.split("/");
-							var hashName = hrefSplit[ hrefSplit.length - 2 ];
+				// $(".menu-item").each(function(){
+				// 	var $sub = $(this).children(".sub-menu");
+				// 	if ($sub.length){
+				// 		$sub.css("width", $(this).innerWidth() +"px");
+				// 		$sub.children("li").first().addClass("first");
+				// 	}
+				// 	$(this).find("a").each(function(){
+				// 		var  href = $(this).attr("href");
+				// 		if (href[0] != "#"){
+				// 			var hrefSplit = href.split("/");
+				// 			var hashName = hrefSplit[ hrefSplit.length - 2 ];
 
-							$(this).attr("data-page", hashName);
+				// 			$(this).attr("data-page", hashName);
 
-							$(this).attr("href", "#!"+hashName);
-						}
+				// 			$(this).attr("href", "#!"+hashName);
+				// 		}
 
-					})
-				});
+				// 	})
+				// });
 
 				window.cc.config.defaults.$menu
 					.delegate(".menu-item", "mouseover", function(){

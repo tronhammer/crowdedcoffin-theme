@@ -16,9 +16,7 @@
 
 get_header(); ?>
 
-<div id="main-content" class="main-content">
-	<div id="primary" class="content-area"></div><!-- #primary -->
-</div><!-- #main-content -->
+	<div id="primary" class="content-area small-12 small-centered columns"></div><!-- #primary -->
 
 <?php
 get_footer();

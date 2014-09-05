@@ -19,5 +19,12 @@
 		</div><!-- #page -->
 
 		<?php wp_footer(); ?>
+		<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/foundation.min.js"></script>
+		<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/placeholder.js"></script>
+		<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.cookie.js"></script>
+		<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/fastclick.js"></script>
+	    <script>
+			$(document).foundation();
+	    </script>
 	</body>
 </html>
