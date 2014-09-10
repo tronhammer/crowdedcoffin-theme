@@ -74,6 +74,7 @@ a.selected{
     top: 30%;
     left: 0px;
     cursor: pointer;
+    width: 100%;
 }
 
 

@@ -19,6 +19,10 @@ and (max-device-width : 480px) {
 	#primary-navigation .sub-menu-container .menu-item{
 		font-size: 0.5em;
 	}
+
+	#main-intro h1{
+		font-size: 14px !important;
+	}
 }
 
 /* Smartphones (landscape) ----------- */
@@ -42,8 +46,13 @@ and (min-width : 321px) {
 		font-size: 0.5em;
 	}
 
+	.cc-intro-img{
+	    top: 30%;
+	}
+
 	#main-intro h1{
 		font-size: 14px !important;
+		top: 70%;
 	}
 
 	/**
@@ -80,6 +89,10 @@ and (max-width : 320px) {
 	
 	#primary-navigation .sub-menu-container .menu-item{
 		font-size: 0.5em;
+	}
+
+	.cc-intro-img{
+	    top: 30%;
 	}
 }
 
@@ -125,6 +138,9 @@ and (min-width : 384px) {
 and (min-width : 480px) {
 	#primary-navigation .menu-item,#primary-navigation .menu-item:first-child{
 		margin: 0px 7px;
+	}
+	.cc-intro-img{
+	    top: 0%;
 	}
 }
 
