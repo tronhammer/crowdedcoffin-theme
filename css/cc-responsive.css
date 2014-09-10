@@ -41,6 +41,24 @@ and (min-width : 321px) {
 	#primary-navigation .sub-menu-container .menu-item{
 		font-size: 0.5em;
 	}
+
+	#main-intro h1{
+		font-size: 14px !important;
+	}
+
+	/**
+	 * !!! HOME !!!
+	 */
+
+/*	.home-image-slider{
+		width: 968px;
+		min-height: 360px;
+	}
+
+	.home-image-slider .slider-image{
+		width: 968px;
+		min-height: 356px;
+	}*/
 }
 
 /* Smartphones (portrait) ----------- */
@@ -234,6 +252,20 @@ and (min-width : 1224px) {
 		word-wrap: break-word;
 		white-space: normal;
 	}
+
+	/**
+	 * !!! HOME !!!
+	 */
+/*
+	.home-image-slider{
+		width: 968px;
+		min-height: 555px;
+	}
+
+	.home-image-slider .slider-image{
+		width: 968px;
+		min-height: 559px;
+	}*/
 }
 
 /* Large screens ----------- */
