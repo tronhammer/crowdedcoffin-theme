@@ -19,7 +19,7 @@
 			this.bind();
 		},
 		"bind": function(){
-			$("body").delegate(".main-enter-site,main-intro > img", "click", function(){
+			$("body").delegate(".main-enter-site,.cc-intro-img", "click", function(){
 				// $("#main-intro-video").get(0).play();
 				window.cc.runIntro();
 				setTimeout(function(){
@@ -55,25 +55,25 @@
 					}
 				});
 
-				$(".menu-item").each(function(){
-					var $sub = $(this).children(".sub-menu");
-					if ($sub.length){
-						$sub.css("width", $(this).innerWidth() +"px");
-						$sub.children("li").first().addClass("first");
-					}
-					$(this).find("a").each(function(){
-						var  href = $(this).attr("href");
-						if (href[0] != "#"){
-							var hrefSplit = href.split("/");
-							var hashName = hrefSplit[ hrefSplit.length - 2 ];
+				// $(".menu-item").each(function(){
+				// 	var $sub = $(this).children(".sub-menu");
+				// 	if ($sub.length){
+				// 		$sub.css("width", $(this).innerWidth() +"px");
+				// 		$sub.children("li").first().addClass("first");
+				// 	}
+				// 	$(this).find("a").each(function(){
+				// 		var  href = $(this).attr("href");
+				// 		if (href[0] != "#"){
+				// 			var hrefSplit = href.split("/");
+				// 			var hashName = hrefSplit[ hrefSplit.length - 2 ];
 
-							$(this).attr("data-page", hashName);
+				// 			$(this).attr("data-page", hashName);
 
-							$(this).attr("href", "#!"+hashName);
-						}
+				// 			$(this).attr("href", "#!"+hashName);
+				// 		}
 
-					})
-				});
+				// 	})
+				// });
 
 				window.cc.config.defaults.$menu
 					.delegate(".menu-item", "mouseover", function(){
@@ -323,9 +323,11 @@
 				this.data.rotationID = window.setInterval(function(){ 
 					var $vis = $images.filter(":visible");
 					var $next = $vis.next().length ? $vis.next() : $images.first();
-					$vis.fadeOut(1200);
-					$next.fadeIn(1200);
+					$vis.fadeOut(700).promise().done(function(){
+						$next.fadeIn(1200);
+					});
 				}, this.config.rotations.interval );
+
 			}
 		},
 		"lexi-puzder": {
@@ -434,8 +436,10 @@
 				this.data.rotationID = window.setInterval(function(){ 
 					var $vis = $images.filter(":visible");
 					var $next = $vis.next().length ? $vis.next() : $images.first();
-					$vis.fadeOut(1200);
-					$next.fadeIn(1200);
+					$vis.fadeOut(700).promise().done(function(){
+						$next.fadeIn(1200);
+					});
+					
 				}, this.config.rotations.interval );
 			}
 		}

@@ -21,6 +21,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
  */
 
 body{
+	background: #f5f5f5;
 	font: normal normal normal 16px/1.4em play, sans-serif;
 	color: white;
 	overflow: hidden;
@@ -31,48 +32,6 @@ a{
 	text-decoration: none;
 }
 
-.hide{
-	display: none;
-}
-
-#main-intro img{
-	position: absolute;
-	left: 290px;
-	display: none;
-}
-
-#main-intro{
-	width: 9999px !important;
-	height: 9999px !important;
-	margin: 0px !important;
-	padding: 0px !important;
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	background: black;
-
-}
-
-#main-intro video{
-	position: absolute;
-	top: 60px;
-	left: 375px;
-	cursor: pointer;
-}
-
-#main-intro h1{
-	position: absolute;
-	top: 490px;
-	left: 719px;
-	z-index: 1;
-	cursor: pointer;
-}
-
-#site-main-logo{
-	width: 990px;
-	margin-left: 40px;
-}
-
 a:hover{
 	color: rgba(255,255,255,0.6);
 }
@@ -81,92 +40,131 @@ a.selected{
 	color: rgba(255,255,255,0.6);
 }
 
-#primary > div{
+.hide{
+	display: none;
+}
+
+
+#page{
+	min-width: 320px;
+	max-width: 1024px;
+	min-height: 800px;
+}
+
+#main-intro{
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0px;
 	position: absolute;
-	left: 300px;
-	z-index: -1;
+	left: 0px;
+	top: 0px;
+	background: black;
+	text-align:center;
+	z-index:100;
 }
 
-.site-title a:hover{
-	color: white;
+.cc-intro-img{
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    position: absolute;
+    display: none;
+    top: 30%;
+    left: 0px;
+    cursor: pointer;
+    width: 100%;
 }
 
-.site-title{
+
+#main-intro h1{
+	text-align: center;
+	position: absolute;
+	top: 60%;
+	z-index: 110;
+	cursor: pointer;
+	width: 100%;	
+}
+
+.cc-intro-img:first-child{
+	display:block;
+}
+
+/**
+ * !!! MENU !!!
+ */
+
+#primary-navigation	{
+	float: left;
+	position: relative;
+	z-index: 2;
+	overflow: visible;
+	white-space: nowrap;
+	height: 22px;
+	width: 100%;
+	font-size: 1em;
+}
+
+#primary{
+	display: inline-block;
+}
+
+#primary-navigation .menu-item .sub-menu-container{
+	display: none;
+}
+
+#primary-navigation .menu-item:hover .sub-menu-container{
+	display: block;
+}
+
+#primary-navigation .menu-item:hover{
+	background: rgba(0,0,0,0.6);
+}
+
+#primary-navigation .menu-item{
+	width: 12.5%;
+	text-align: center;
+}
+
+#primary-navigation .menu-item:last-child{
+	float:left;
+}
+
+#primary-navigation .menu-item:first-child{
+	width: 10%;
+	margin-left:0px;
+}
+
+#primary-navigation .sub-menu-container .menu-item{
 	width: 100%;
 	text-align: center;
-	font-family: 'arial black', gadget, sans-serif;
-	font-size: 60px;
-	height: auto;
-	letter-spacing: -6px;
-	line-height: normal;
-	margin: 20px 0px -5px 0px;
+	font-size: 0.9em;
+	padding: 0px;
+	word-wrap: break-word;
+	white-space: normal;
 }
 
-.site-navigation{
-
-}
-
-.site-navigation ul.nav-menu{
-	margin: 0 auto;
-	width: 1000px;
-	margin-bottom: 5px;
-	list-style-type: none;
-	padding-left: 40px;
-}
-
-.site-navigation ul.nav-menu > li:hover{
-	background: rgba(0,0,0,0.6);
-/*	border-top: 1px solid rgba(255,255,255,0.4);
-	border-left: 1px solid rgba(255,255,255,0.4);
-	border-right: 1px solid rgba(255,255,255,0.4);*/
-}
-
-.site-navigation .menu-item > ul.sub-menu{
-	display: none;
-	position: absolute;
-	margin-left: -22px;
-	text-align: center;
-	padding-left: 0px;
-	width: inherit;
-	background: rgba(0,0,0,0.6);
-	padding-bottom: 10px;
-	list-style-type: none;
-/*	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-	border: 1px solid rgba(255,255,255,0.4);
-	border-top: none;*/
-}
-
-.site-navigation .menu-item > ul.sub-menu li.first{
-	padding: 10px 0px 5px 0px;
-}
-
-.site-navigation .menu-item > ul.sub-menu li{
-	font-size: 14px;
-	padding: 5px 0px;
-/*	font-weight: bold;
-*/	line-height: 21px;
-}
-
-.site-navigation ul.nav-menu > li{
-	padding: 0px 28px;
-	text-align: center;
-	display: inline-block;
-	line-height: 21px;
-}
+/**
+ * !!! HOME !!!
+ */
 
 .home-image-slider{
 	margin: 0 auto;
 	border: 2px solid rgba(255, 255, 255, 0.6);
-	width: 968px;
-	min-height: 559px;
+	width: 100%;
+	height: 400px;
 }
 
 .home-image-slider .slider-image{
-	width: 968px;
-	min-height: 559px;
-	background-size: 100% 100%;
-	position: absolute;
+	width: 100%;
+	height: 396px;
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+/*	position: absolute;
+*/	float:left;
 }
 
 /**
@@ -403,118 +401,4 @@ a.selected{
 	background-size: cover;
 	float: left;
 	margin: 2px;
-}
-
-/* Large desktops and laptops */
-@media (min-width: 1200px) {
-
-}
-
-/* Portrait tablets and medium desktops */
-@media (min-width: 992px) and (max-width: 1199px) {
-
-}
-
-/* Portrait tablets and small desktops */
-@media (min-width: 768px) and (max-width: 991px) {
-
-}
-
-/* Landscape phones and portrait tablets */
-@media (max-width: 767px) {
-
-	#main-intro img{
-		position: absolute;
-		left: -20px;
-		top: 0px;
-		width: 600px;
-		display: none;
-	}
-
-	#main-intro h1{
-		position: absolute;
-		top: 270px;
-		left: 230px;
-		z-index: 1;
-		cursor: pointer;
-	}
-
-	#site-main-logo{
-		width: 552px;
-		margin-left: 0px;
-	}
-
-	#primary > div{
-		left: 10px;
-	}
-
-	.site-navigation ul.nav-menu {
-		width: 560px;
-		padding-left: 8px;
-		padding-bottom: 5px;
-		margin: 0px;
-	}
-
-	.site-navigation ul.nav-menu > li{
-		padding: 0px 3px;
-		line-height: 12px;
-		font: normal normal normal 14px/1.4em play, sans-serif;
-	}
-
-	.featured-gallery-area{
-		float: none;
-		width: 100%;
-	}
-
-	.home-image-slider{
-		width: 560px;
-		min-height: 310px;
-	}
-
-	.home-image-slider .slider-image{
-		width: 560px;
-		min-height: 310px;
-	}
-}
-
-/* Landscape phones and smaller */
-@media (max-width: 480px) {
-	#main-intro img{
-		position: absolute;
-		left: -120px;
-		top: 0px;
-		width: 600px;
-		display: none;
-	}
-
-	#main-intro h1{
-		position: absolute;
-		top: 270px;
-		left: 130px;
-		z-index: 1;
-		cursor: pointer;
-	}
-
-	#site-main-logo{
-		width: 300px;
-		margin-left: 0px;
-	}
-	#primary > div{
-		left: 15px;
-	}
-
-	.site-navigation ul.nav-menu{
-		width: 300px;
-		padding-left: 10px;
-	}
-
-	.home-image-slider{
-		width: 300px;
-		min-height: 170px;
-	}
-
-	.home-image-slider .slider-image{
-		width: 300px;
-		min-height: 170px;
-	}
 }
